@@ -3,9 +3,11 @@ package com.tobaccode.tobaccommendate.services;
 import com.tobaccode.tobaccommendate.entities.User;
 import com.tobaccode.tobaccommendate.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserService {
 
     private UserRepository userRepository;
