@@ -1,7 +1,6 @@
 package com.tobaccode.tobaccommendate.entities;
 
 import com.tobaccode.tobaccommendate.helpers.enums.BlendType;
-import com.tobaccode.tobaccommendate.helpers.enums.Country;
 import com.tobaccode.tobaccommendate.helpers.enums.CutType;
 
 import javax.persistence.*;
@@ -29,7 +28,8 @@ public class Tobacco {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-    @ManyToMany
+    @Enumerated(EnumType.STRING)
+    @ElementCollection
     private List<BlendType> blendTypeContent;
 
     private String flavoring;
@@ -38,7 +38,8 @@ public class Tobacco {
     @Column(name = "cut_type")
     private CutType cutType;
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name = "country_id")
     private Country country;
 
     public Tobacco() {
